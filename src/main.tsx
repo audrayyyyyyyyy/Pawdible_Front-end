@@ -8,6 +8,7 @@ import Login from './Components/LoginSignup/Login.tsx';
 
 import './index.css'
 import NotFoundPage from './Components/LoginSignup/NotFoundPage.tsx';
+import MyPets from './Components/MyAccount/MyPets.tsx';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
     path: '/Login',
     element: <Login/>,
   },
+  {
+    path:'/MyPets',
+    element: <MyPets/>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
