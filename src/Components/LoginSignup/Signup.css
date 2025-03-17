@@ -1,0 +1,12 @@
+.already-have-account {
+    margin-top: 10px;
+    align-items: center;
+    color: #797979;
+    font-size: 18px;
+    
+}
+
+.already-have-account span {
+    color: #FCAA48;
+    cursor: pointer;
+}
