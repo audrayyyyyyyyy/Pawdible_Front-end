@@ -9,6 +9,7 @@ import Login from './Components/LoginSignup/Login.tsx';
 import './index.css'
 import NotFoundPage from './Components/LoginSignup/NotFoundPage.tsx';
 import MyPets from './Components/MyAccount/MyPets.tsx';
+import NavBar from './Components/NavBar/NavBar.tsx';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path:'/MyPets',
     element: <MyPets/>
+  },
+  {
+    path:'/NavBar',
+    element: <NavBar/>,
   }
 ]);
 

@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import "./MyPets.css"
+import NavBar from "../NavBar/NavBar";
 const MyPets= () => {
     
 
@@ -19,22 +20,20 @@ const MyPets= () => {
                 </div>
 
             </div>
-            <div className="nav-bar">
-                <div className="account">
-                    <img src="/images/account.svg" className="account-image"/>
-                    <div className="text">Account</div> 
-                </div>
 
-                <div className="scan">
-                    <img src="/images/scan.svg" className="scan-image"/>
-                    <div className="text">Scan</div>
+            <div>
+            <div className="text-2">Add new Pet? </div>
+            <div className="text-3">What is your pet?</div>
+                <div className="card1">
+                    <h1>Dog</h1>
+                    <img src="" alt="" />
                 </div>
-
-                <div className="history">
-                    <img src="/images/history.svg" className="history-image"/>
-                    <div className="text">History</div>
+                <div className="card2">
+                    <h1>Dog</h1>
                 </div>
             </div>
+
+            <NavBar/>
        </div>
     );
 

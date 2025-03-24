@@ -8,11 +8,11 @@ const Signup = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="container">
-            <img src="/images/logo.svg" className="logo-image"/>
+        <div  className="container">
+            <img src="/images/g8.svg" className="logo-image"/>
 
             <div className="header">
-                <div className="text">Sign Up</div>
+                <div className="text1">Sign Up</div>
             </div>
             <div className="inputs">
                 <div className="input">

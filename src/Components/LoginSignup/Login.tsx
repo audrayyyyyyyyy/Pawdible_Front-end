@@ -9,10 +9,10 @@ const Login = () => {
 
     return (
         <div className="container">
-            <img src="/images/logo.svg" className="logo-image"/>
+            <img src="/images/g8.svg" className="logo-image"/>
             
             <div className="header">
-                <div className="text">Login</div>
+                <div className="text1">Login</div>
             </div>
             <div className="inputs">
                 <div className="input">
@@ -25,7 +25,7 @@ const Login = () => {
             <div className="submit-container">
                 <div className="submit">Login</div>
                 <div className="already-have-account">
-                    Don't have an account? <span onClick={() => navigate("/signup")}>Sign Up</span>
+                 Don't have an account? <span onClick={() => navigate("/signup")}>Sign Up</span>
                 </div>
             </div>
         </div>
