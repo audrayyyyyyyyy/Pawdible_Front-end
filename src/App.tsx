@@ -1,13 +1,12 @@
+import './App.tsx'
 import './App.css'
 import Signup from './Components/LoginSignup/Signup';
 
 function App() {
   return (
-    <div className= "app">
-      <form>
-
-      </form>
-    </div>
+    <main className='App'>
+      <Signup/>
+    </main>
   );
 }
 
