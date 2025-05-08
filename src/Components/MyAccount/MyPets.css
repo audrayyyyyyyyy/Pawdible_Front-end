@@ -1,60 +1,156 @@
+.my-pets-container{
+  background-color: white;
+  background-image:
+    linear-gradient(#FD7F42);
+  background-repeat: no-repeat;
+  background-size: 100% 30px;
+  
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers horizontally */
 
-.card1{
-    border: none;
-    outline: 0;
-    padding: 12px;
-    color:#F56062;
-    background-color: #000;
+}
+  
+  .my-pets-header {
+    font-size: 20px;
+    font-weight: bold;
+    color: #484848;
     text-align: center;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
-
-}
-.text-1{
-
-}
-
-.MyPetsContainer{
+    padding: 30px;
+    margin-top: 12px;
     width: 100vw;
-}
-.wrapper{
-    max-height: 120px;
-    border: 1px solid #ddd;
+  }
+  
+  .pet-list {
     display: flex;
-    overflow-x: auto;
-}
-/* .wrapper::-webkit-scrollbar{
-    ;
-} */
-.wrapper .item{
-    min-width: 110px;
-    height: 110px;
-    line-height: 110px;
-    text-align: center;
-    background-color: #ddd;
-    margin-right:2px;
-
-}
-.text{
-    color: #CDD0D8;
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    font-weight: 66px;
-}
-.account-image{
-    display: block;
-   margin-left: auto;
-   margin-right: auto;
-
-}
-.scan-image{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-.history-image{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
+    justify-content: center;
+    gap: 20px;
+    width: 100vw;
+  }
+  
+  .pet-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .pet-image {
+    width: 75px;
+    height: 75px;
+    border-radius: 20%;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .pet-image.cat {
+    background-color: #ff9a58; /* Placeholder for Putot image */
+  }
+  
+  .pet-image.dog {
+    background-color: #ff9a58; /* Placeholder for Choco image */
+  }
+  
+  .pet-name {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .add-pet-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    padding: 20px;
+  }
+  
+  .add-pet-header {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #484848;
+    margin-bottom: 20px;
+  }
+  
+  .pet-type-selection {
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .pet-type-header {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .pet-type-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-radius: 16px;
+    cursor: pointer;
+  }
+  
+  .pet-type-option.selected {
+    border: 2px solid #ff7a3e;
+  }
+  
+  .pet-type-option:nth-child(2) {
+    background-color: #ff6f61; /* Dog background */
+  }
+  
+  .pet-type-option:nth-child(3) {
+    background-color: #ff9999; /* Cat background */
+  }
+  
+  .pet-type-label {
+    font-size: 19px;
+    color: white;
+  }
+  
+  .pet-type-image {
+    width: 60px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .pet-type-image.dog {
+    background-color: transparent; /* Placeholder for dog image */
+  }
+  
+  .pet-type-image.cat {
+    background-color: transparent; /* Placeholder for cat image */
+  }
+  
+  .pet-name-input {
+    width: 100%;
+    max-width: 300px;
+    background-color: #CDD0D8;
+    border-radius: 65px;
+    padding: 5px;
+    margin: 20px ;
+  }
+  
+  .submit-button {
+    width: 100%;
+    max-width: 300px;
+    background-color: #ff7a3e;
+    color: white;
+    font-weight: bold;
+    border-radius: 65px;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background-color: #ff9a58;
+  }
+  
+  

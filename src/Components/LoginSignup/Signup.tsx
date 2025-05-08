@@ -29,11 +29,12 @@ const Signup = () => {
                 }
             )
             alert("Signup Successful");
+            navigate('Login');
         
         }
         catch (error){
             console.error("Signup failed:",error.response ? error.response.data : error.message);
-            alert("Login failed! Check your credentials and try again.")     
+            alert("Signup failed! Check your credentials and try again.")     
         }
     }
 
@@ -58,7 +59,7 @@ const Signup = () => {
                     </div>
                 </div>
                 <div className="submit-container">
-                    <button className="submit">Sign Up</button>
+                    <button  className="submit">Sign Up</button>
                     <div className="already-have-account">
                         Already have an account? <span onClick={() => navigate("/login")}>Log in</span>
                     </div>

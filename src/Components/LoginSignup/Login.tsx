@@ -24,6 +24,7 @@ const Login = () => {
         event.preventDefault();
 
         try {
+            console.log("username: " + username + "password: " + password);
             const response = await api.post("login/",
                 {
                     "username": username,
@@ -32,6 +33,8 @@ const Login = () => {
             )
 
             alert("Login Successful");
+            navigate('NewPage');
+        
         }
         catch (error){
             console.error("Login failed:",error.response ? error.response.data : error.message);

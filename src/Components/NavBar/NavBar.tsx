@@ -6,24 +6,26 @@ const NavBar= () => {
     
 
     return (
+        
 
 
-            <div className="nav-bar">
-                <div className="account">
-                    <img src="/images/account.svg" className="account-image"/>
-                    <div className="text">Account</div> 
-                </div>
-
-                <div className="scan">
-                    <img src="/images/scan.svg" className="scan-image"/>
-                    <div className="text">Scan</div>
-                </div>
-
-                <div className="history">
-                    <img src="/images/history.svg" className="history-image"/>
-                    <div className="text">History</div>
-                </div>
-            </div>
+        <div className="bottom-nav">
+        <div className="nav-item active">
+          <div className="nav-icon account"></div>
+          <img src="/images/account.svg" className="account-image"/>
+          <div className="nav-label">Account</div>
+        </div>
+        <div className="nav-item">
+          <div className="nav-icon scan"></div>
+          <img src="/images/scan.svg" className="scan-image"/>
+          <div className="nav-label">Scan</div>
+        </div>
+        <div className="nav-item">
+          <div className="nav-icon history"></div>
+          <img src="/images/history.svg" className="history-image"/>
+          <div className="nav-label">History</div>
+        </div>
+      </div>
        
     );
 

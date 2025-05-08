@@ -1,0 +1,52 @@
+.account-wrapper {
+  background-color: #FD7F42;
+  width: 100vw;
+  height: 100vh;
+}
+
+.my-account {
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  margin-top: 33px;
+}
+
+.account-content {
+  background-color: white;
+  height: 87vh;
+  margin-top: 30px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers horizontally */
+  justify-content: flex-start; /* Aligns content at the top */
+}
+
+.account-avatar {
+  height: 100px;
+  width: 100px;
+  background-color: #bbb;
+  border-radius: 100%;
+  margin: 20px; /* Vertical spacing */
+  margin-top: 75px;
+}
+
+.account-name {
+  color: #FCAA48;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.account-choices {
+  color: black;
+  text-align: left;
+  line-height: 3;
+  
+}
+  
+.arrow{
+  
+
+}

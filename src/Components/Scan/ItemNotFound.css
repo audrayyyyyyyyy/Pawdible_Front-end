@@ -1,0 +1,56 @@
+.wrapper {
+    background-color: #F25C69;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers horizontally */
+    justify-content: flex-start; /* Aligns content at the top */
+  }
+  .not-available{
+   
+    
+
+  }
+  .pet-image-dog{
+    height: 40%;
+    margin-top: 10px;
+    background-position: center;
+  }
+  
+  .message1{
+    font-weight: bold;
+    font-size: 30px;
+  }
+  .message2{
+    padding-left: 20px;
+    padding-right: 20px;
+    
+  }
+  .button-group{
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers buttons */
+}
+    
+  .back-button, .add-button{
+    justify-content: center;
+    align-items: center;
+    width: 330px;
+    height: 40px;
+    color: #2F2F2F;
+    background: #FFFFFF;
+    border-radius: 87px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    margin: 10px 11px 12px 13px;
+
+  }
+  .add-button{
+    background: #FF1845;
+    color: white;
+
+
+
+  }

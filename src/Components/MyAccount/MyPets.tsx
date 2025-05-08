@@ -1,42 +1,69 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import "./MyPets.css";
+import NavBar from "../../Components/NavBar/NavBar";
 
-import "./MyPets.css"
-import NavBar from "../NavBar/NavBar";
-const MyPets= () => {
-    
+function MyPets() {
+  const [selectedPetType, setSelectedPetType] = useState(null);
+  const [setPetName] = useState("");
 
-    return (
-        <div>
-            <div className="MyPetsContainer">
-                <div className="text-1">My Pets </div>
-                <div className="wrapper">
-                    <div className="item">b0x1</div>
-                    <div className="item">b0x2</div>
-                    <div className="item">b0x3</div>
-                    <div className="item">b0x4</div>
-                    <div className="item">b0x4</div>
-                    
-                </div>
+  const handlePetTypeSelect = (type) => {
+    setSelectedPetType(type);
+  };
 
-            </div>
+  return (
+    <div className="my-pets-container">
+      {/* Header */}
+      <div className="my-pets-header">My Pets</div>
 
-            <div>
-            <div className="text-2">Add new Pet? </div>
-            <div className="text-3">What is your pet?</div>
-                <div className="card1">
-                    <h1>Dog</h1>
-                    <img src="" alt="" />
-                </div>
-                <div className="card2">
-                    <h1>Dog</h1>
-                </div>
-            </div>
+      {/* Pet List */}
+      <div className="pet-list">
+        <div className="pet-item">
+          <img src="images/my-pet-cat.svg"  className="pet-image cat"/>
+          <div className="pet-name">Putot</div>
+        </div>
+        <div className="pet-item">
+          <div className="pet-image dog"></div>
+          <div className="pet-name">Choco</div>
+        </div>
+      </div>
 
-            <NavBar/>
-       </div>
-    );
+      {/* Add New Pet Section */}
+      <div className="add-pet-section">
+        <div className="add-pet-header">Add new Pet?</div>
 
-};
+        {/* Pet Type Selection */}
+        <div className="pet-type-selection">
+          <div className="pet-type-header">What is your pet?</div>
+          <div
+            className={`pet-type-option ${selectedPetType === "Dog" ? "selected" : ""}`}
+            onClick={() => handlePetTypeSelect("Dog")}
+          >
+            <div className="pet-type-label"> 
+              Dog</div>
+            <img src="images/add-pet-dog.svg" className="pet-type-image dog"/>
+          </div>
+          <div
+            className={`pet-type-option ${selectedPetType === "Cat" ? "selected" : ""}`}
+            onClick={() => handlePetTypeSelect("Cat")}
+          >
+            <div className="pet-type-label">Cat</div>
+            <img src="images/add-pet-cat.svg"  className="pet-type-image cat"/>
+          </div>
+        </div>
+
+
+
+        {/* Pet Name Input */}
+        <div className="pet-name-input"> Pet Name
+        </div>
+
+        {/* Submit Button */}
+        <button className="submit-button"> Submit </button>
+        <NavBar />
+      </div>
+
+    </div>
+  );
+}
 
 export default MyPets;

@@ -5,12 +5,20 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.tsx';
 import Signup from './Components/LoginSignup/Signup.tsx';
 import Login from './Components/LoginSignup/Login.tsx';
-
 import NotFoundPage from './Components/LoginSignup/NotFoundPage.tsx';
-import MyPets from './Components/MyAccount/MyPets.tsx';
+
 import NavBar from './Components/NavBar/NavBar.tsx';
 
+import MyPets from './Components/MyAccount/MyPets.tsx';
+import Account from './Components/MyAccount/Account.tsx';
+import ItemFoundUnsafe from'./Components/Scan/ItemFoundUnsafe.tsx';
+import ItemFoundSafe from './Components/Scan/ItemFoundSafe.tsx';
+
+import ItemNotFound from './Components/Scan/ItemNotFound.tsx';
+
 import './index.css';
+import NewPage from './Components/MyAccount/NewPage.tsx';
+import LandingPage from './Components/Scan/LandingPage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +31,15 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
+    path: '/Signup',
+    element: <Signup/>
+  },
+  
+  {
+    path: '/Signup',
+    element: <NewPage/>,
+  },
+  {
     path: '/MyPets',
     element: <MyPets />,
   },
@@ -30,6 +47,31 @@ const router = createBrowserRouter([
     path: '/NavBar',
     element: <NavBar />,
   },
+  {
+    path: '/NewPage',
+    element: <NewPage />,
+  },
+  {
+    path: '/Account',
+    element: <Account/>,
+  },
+  {
+    path:'/ItemFoundSafe',
+    element:<ItemFoundSafe/>,
+  },
+  {
+    path:'/ItemFoundUnsafe',
+    element:<ItemFoundUnsafe/>,
+  },
+  {
+    path:'/ItemNotFound',
+    element:<ItemNotFound/>,
+  },
+  {
+    path:'/LandingPage',
+    element:<LandingPage/>
+  }
+  
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
