@@ -3,7 +3,7 @@ This is the web front-end that is used in the Pawdible project. The Pawdible pro
 
 ## Installation
 ### Prerequisites:
-This projects requires Node.js and React to run. Before deploying this site, make sure to install these software to your system
+This projects requires Node.js, Vite, and React to run. Before deploying this site, make sure to install these software to your system
 
 ### Downloading the repository
 ```bash
