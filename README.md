@@ -14,3 +14,14 @@ git clone https://github.com/audrayyyyyyyyy/Pawdible_Front-end.git
 ```bash
 npm run dev
 ```
+
+
+## User Requirements
+This section shows the requirements needed for the users to view the website.
+
+### Supported Browsers:
+- Google Chrome v136.0.7103 or later
+- Brave Browser v1.78.98 or later
+- Microsoft Edge v136.0.3240.64 or later
+
+## 
