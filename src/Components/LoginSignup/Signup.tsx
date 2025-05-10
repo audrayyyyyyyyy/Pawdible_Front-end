@@ -33,7 +33,7 @@ const Signup = () => {
         
         }
         catch (error){
-            console.error("Signup failed:",error.response ? error.response.data : error.message);
+            console.error("Signup failed:", error.response ? error.response.data : error.message);
             alert("Signup failed! Check your credentials and try again.")     
         }
     }

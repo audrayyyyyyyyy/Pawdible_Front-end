@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { backendServerIP } from "../../globals";
 
 import "./LoginSignup.css"
 import "./Login.css";
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: 'http://127.0.0.1:8000/',
+    baseURL: backendServerIP,
     headers: {"Content-Type": "application/json"},
 
 });
@@ -36,9 +37,18 @@ const Login = () => {
             navigate('NewPage');
         
         }
-        catch (error){
-            console.error("Login failed:",error.response ? error.response.data : error.message);
-            alert("Login failed! Check your credentials and try again.")
+        // catch (error){
+        //     console.error("Login failed:", error.response ? error.response.data : error.message);
+        //     alert("Login failed! Check your credentials and try again.")
+        // }
+
+        catch (error: unknown) {
+            if (axios.isAxiosError(error)) {
+                console.error("Login failed:", error.response?.data || error.message);
+            } else {
+                console.error("Unexpected error:", error);
+            }
+            alert("Login failed! Check your credentials and try again.");
         }
     }
 
