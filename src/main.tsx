@@ -17,27 +17,22 @@ import ItemFoundSafe from './Components/Scan/ItemFoundSafe.tsx';
 import ItemNotFound from './Components/Scan/ItemNotFound.tsx';
 
 import './index.css';
-import NewPage from './Components/MyAccount/NewPage.tsx';
+// import NewPage from './Components/MyAccount/NewPage.tsx';
 import LandingPage from './Components/Scan/LandingPage.tsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Signup />,
+    element: <Login />,
     errorElement: <NotFoundPage />,
   },
   {
-    path: '/Login',
+    path: '/login',
     element: <Login />,
   },
   {
     path: '/Signup',
     element: <Signup/>
-  },
-  
-  {
-    path: '/Signup',
-    element: <NewPage/>,
   },
   {
     path: '/MyPets',
@@ -49,7 +44,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/NewPage',
-    element: <NewPage />,
+    // element: <NewPage />,
   },
   {
     path: '/Account',
