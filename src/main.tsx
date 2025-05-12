@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App.tsx';
+
 import Signup from './Components/LoginSignup/Signup.tsx';
 import Login from './Components/LoginSignup/Login.tsx';
 import NotFoundPage from './Components/LoginSignup/NotFoundPage.tsx';
@@ -19,11 +20,13 @@ import ItemNotFound from './Components/Scan/ItemNotFound.tsx';
 import './index.css';
 // import NewPage from './Components/MyAccount/NewPage.tsx';
 import LandingPage from './Components/Scan/LandingPage.tsx';
+import AuthRedirect from './Components/AuthRedirect/AuthRedirect.tsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Login />,
+    // element: <Login />,
+    element: <AuthRedirect redirectIfLoggedIn='/LandingPage'/>,
     errorElement: <NotFoundPage />,
   },
   {
