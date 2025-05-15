@@ -19,14 +19,15 @@ import ItemNotFound from './Components/Scan/ItemNotFound.tsx';
 
 import './index.css';
 // import NewPage from './Components/MyAccount/NewPage.tsx';
-import LandingPage from './Components/Scan/LandingPage.tsx';
+import LandingPage from './Components/Scan/ScanPage.tsx';
 import AuthRedirect from './Components/AuthRedirect/AuthRedirect.tsx';
+import ScanPage from './Components/Scan/ScanPage.tsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
     // element: <Login />,
-    element: <AuthRedirect redirectIfLoggedIn='/LandingPage'/>,
+    element: <AuthRedirect redirectIfLoggedIn='/scan'/>,
     errorElement: <NotFoundPage />,
   },
   {
@@ -66,8 +67,8 @@ const router = createBrowserRouter([
     element:<ItemNotFound/>,
   },
   {
-    path:'/LandingPage',
-    element:<LandingPage/>
+    path:'/scan',
+    element:<ScanPage/>
   }
   
 ]);

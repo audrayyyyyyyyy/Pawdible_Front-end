@@ -5,8 +5,10 @@
 }
 
 .my-account {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
   color: white;
-  font-size: 30px;
+  font-size: 20px;
   text-align: center;
   margin-top: 33px;
 }

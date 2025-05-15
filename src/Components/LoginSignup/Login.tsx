@@ -31,7 +31,7 @@ const Login = () => {
         try {
             // console.log("username: " + username + "password: " + password);
             
-            const response = await api.post("login/",
+            const response = await api.post("/login",
                 {
                     "username": username,
                     "password": password

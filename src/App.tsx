@@ -1,12 +1,13 @@
 import './App.tsx'
 import './App.css'
 import Signup from './Components/LoginSignup/Signup';
-import LandingPage from './Components/Scan/LandingPage.tsx';
+import LandingPage from './Components/Scan/ScanPage.tsx';
+import ScanPage from './Components/Scan/ScanPage.tsx';
 
 function App() {
   return (
     <main className='App'>
-      <LandingPage/>
+      <ScanPage/>
       <Signup/>
     </main>
   );
