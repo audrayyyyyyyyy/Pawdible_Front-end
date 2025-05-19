@@ -3,7 +3,7 @@ import BarcodeScannerComponent from "react-qr-barcode-scanner";
 import NavBar from '../NavBar/NavBar';
 import axios from "axios";
 import { backendServerIP } from "../../globals";
-
+import { useNavigate } from 'react-router-dom';
 
 const api = axios.create({
   baseURL: backendServerIP,
@@ -46,15 +46,15 @@ const ScanPage = () => {
   };
 
   return (
-    <div className='flex '>
+    <div className='flex flex flex-col h-screen w-screen'>
       <div className='camera-scan-container'>
         <BarcodeScannerComponent
           width={window.innerWidth}
           height={300}
           onUpdate={handleBarcodeDetected}
         />
-        {loading && <p>Loading...</p>}
-        {barcode && <p>Scanned: {barcode}</p>}
+         {loading && <p>Loading...</p>}
+        {/* {barcode && <p>Scanned: {barcode}</p>} */}
       </div>
       <div>
         

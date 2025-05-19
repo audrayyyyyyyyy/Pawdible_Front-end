@@ -43,14 +43,6 @@ const router = createBrowserRouter([
     element: <MyPets />,
   },
   {
-    path: '/NavBar',
-    element: <NavBar />,
-  },
-  {
-    path: '/NewPage',
-    // element: <NewPage />,
-  },
-  {
     path: '/Account',
     element: <Account/>,
   },
