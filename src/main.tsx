@@ -2,12 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import App from "./App.tsx";
-import Signup from "./Components/LoginSignup/Signup.tsx";
-import Login from "./Components/LoginSignup/Login.tsx";
-import NotFoundPage from "./Components/LoginSignup/NotFoundPage.tsx";
-import App from "./App.tsx";
-
 import Signup from "./Components/LoginSignup/Signup.tsx";
 import Login from "./Components/LoginSignup/Login.tsx";
 import NotFoundPage from "./Components/LoginSignup/NotFoundPage.tsx";
@@ -23,17 +17,18 @@ import ItemNotFound from "./Components/Scan/ItemNotFound.tsx";
 
 import "./index.css";
 // import NewPage from './Components/MyAccount/NewPage.tsx';
-import LandingPage from "./Components/Scan/LandingPage.tsx";
+// import LandingPage from "./Components/Scan/LandingPage.tsx";
+import AuthRedirect from "./Components/AuthRedirect/AuthRedirect.tsx";
+import ScanPage from "./Components/Scan/ScanPage.tsx";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Login />,
     path: "/",
     // element: <Login />,
     element: <AuthRedirect redirectIfLoggedIn="/scan" />,
     errorElement: <NotFoundPage />,
   },
+
   {
     path: "/login",
     element: <Login />,
@@ -43,16 +38,16 @@ const router = createBrowserRouter([
     element: <Signup />,
   },
   {
+    path: "/scan",
+    // element: <Login />,
+    element: <ScanPage />,
+    // element: <AuthRedirect redirectIfLoggedIn="/scan" />,
+    errorElement: <NotFoundPage />,
+  },
+
+  {
     path: "/MyPets",
     element: <MyPets />,
-  },
-  {
-    path: "/NavBar",
-    element: <NavBar />,
-  },
-  {
-    path: "/NewPage",
-    // element: <NewPage />,
   },
   {
     path: "/Account",
@@ -69,10 +64,6 @@ const router = createBrowserRouter([
   {
     path: "/ItemNotFound",
     element: <ItemNotFound />,
-  },
-  {
-    path: "/LandingPage",
-    element: <LandingPage />,
   },
 ]);
 
