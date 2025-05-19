@@ -4,9 +4,11 @@ import { useNavigate } from "react-router-dom";
 import"./LoginSignup.css"
 import "./Signup.css";
 import axios from "axios";
+import { backendServerIP } from "../../globals";
+
 
 const api = axios.create({
-    baseURL: 'http://127.0.0.1:8000/',
+    baseURL: backendServerIP,
     headers: {"Content-Type": "application/json"},
 });
 

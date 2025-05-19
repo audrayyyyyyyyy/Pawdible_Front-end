@@ -1,34 +1,49 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-import "./Navbar.css"
-const NavBar= () => {
-    
+import "./Navbar.css";
 
-    return (
-        
+interface NavBarProps {
+  current: "account" | "scan" | "history";
+  routes: {
+    account: string;
+    scan: string;
+    history: string;
+  };
+}
 
+const NavBar: React.FC<NavBarProps> = ({ current, routes }) => {
+  const navigate = useNavigate();
 
-        <div className="bottom-nav">
-        <div className="nav-item active">
-          <div className="nav-icon account"></div>
-          <img src="/images/account.svg" className="account-image"/>
-          <div className="nav-label">Account</div>
+  const navItems: {
+    key: "account" | "scan" | "history";
+    label: string;
+    icon: string;
+  }[] = [
+    { key: "account", label: "Account", icon: "/images/account.svg" },
+    { key: "scan", label: "Scan", icon: "/images/scan.svg" },
+    { key: "history", label: "History", icon: "/images/history.svg" },
+  ];
+
+  return (
+    <div className="bottom-nav">
+      {navItems.map((item) => (
+        <div
+          key={item.key}
+          className={`nav-item ${current === item.key ? "active" : ""}`}
+          onClick={() => navigate(routes[item.key])}
+        >
+          <div className={`nav-icon ${item.key}`}></div>
+          <img
+            src={item.icon}
+            className={`${item.key}-image icon ${current === item.key ? "active" : ""}`}
+            alt={`${item.label} icon`}
+          />
+          <p className="nav-label">{item.label}</p>
         </div>
-        <div className="nav-item">
-          <div className="nav-icon scan"></div>
-          <img src="/images/scan.svg" className="scan-image"/>
-          <div className="nav-label">Scan</div>
-        </div>
-        <div className="nav-item">
-          <div className="nav-icon history"></div>
-          <img src="/images/history.svg" className="history-image"/>
-          <div className="nav-label">History</div>
-        </div>
-      </div>
-       
-    );
-
+      ))}
+    </div>
+  );
 };
 
 export default NavBar;

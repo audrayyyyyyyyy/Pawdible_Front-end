@@ -28,6 +28,14 @@
     background-repeat: no-repeat;
     background-position: center;
   }
+
+  .icon.active {
+    color: #ff7a3e;
+  }
+
+  .nav-icon.active {
+    color: #ff7a3e;
+  }
   
 .account-image{
     display: block;
@@ -45,4 +53,11 @@
     margin-left: auto;
     margin-right: auto;
 }
-.nav-icon.account,
+/* .nav-icon.account, */
+
+.nav-label {
+  font-size: 1rem;
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none;     /* IE/Edge */
+}

@@ -19,22 +19,33 @@ const Login = () => {
 
     const [username,setUsername] = useState<string>("");
     const [password,setPassword] = useState<string>("");
-
+    const [loading, setLoading] = useState(false);
 
     const SubmitLoginToServer = async (event) => {
         event.preventDefault();
 
+        // Disable the button while sending data to prevent the user
+        // from sending multiple requests in one click
+        setLoading(true);
+
         try {
-            console.log("username: " + username + "password: " + password);
-            const response = await api.post("login/",
+            // console.log("username: " + username + "password: " + password);
+            
+            const response = await api.post("/login",
                 {
                     "username": username,
                     "password": password
                 }
             )
 
+            const token = response.data.token;
+            const user = response.data.user;
+
+            localStorage.setItem("token", token);
+            localStorage.setItem("user", JSON.stringify(user));
+
             alert("Login Successful");
-            navigate('NewPage');
+            navigate('/');
         
         }
         // catch (error){
@@ -49,6 +60,8 @@ const Login = () => {
                 console.error("Unexpected error:", error);
             }
             alert("Login failed! Check your credentials and try again.");
+        } finally {
+            setLoading(false);
         }
     }
 

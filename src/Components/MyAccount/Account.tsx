@@ -6,16 +6,29 @@ import NavBar from "../../Components/NavBar/NavBar";
 import "./Account.css";
 
 function Account() {
+    const userString = localStorage.getItem("user");
+    let username = "";
+
+    if (userString) {
+        try {
+            const user = JSON.parse(userString);
+            username = user.username || "";
+        } catch (e) {
+            console.error("Invalid JSON in localStorage user:", e);
+        }
+    }
+
+
     return (
         <div>
             <div className="account-wrapper"> 
                 <div className="header">
-                <div className="my-account">My Account</div>
+                    <h1 className="my-account">My Account</h1>
                 </div>
             
                 <div className="account-content">
                     <div className="account-avatar"></div>
-                    <div className="account-name">Audray Mae B. Valdez</div>
+                    <div className="account-name">{username}</div>
 
                         <div className="account-choices">
                             <div className="change-avatar">Change Avatar &emsp;&emsp;&emsp;
@@ -36,7 +49,14 @@ function Account() {
                     </div>
                 </div>
                 
-            <NavBar />
+            <NavBar
+                current="account"
+                routes={{
+                    account: "/account",
+                    scan: "/scan",
+                    history: "/history",
+                }}
+            />
          </div>
                   
                     
