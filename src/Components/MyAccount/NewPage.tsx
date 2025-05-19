@@ -1,13 +1,21 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import axios from 'axios';
+import NavBar from '../NavBar/NavBar';
 
-import NavBar from "../../Components/NavBar/NavBar";
+const NewPage = () => {
+ 
+  return (
+    <div>
+        <NavBar
+            current="scan"
+            routes={{
+                account: "/account",
+                scan: "/scan",
+                history: "/history",
+            }}
+        />
+    </div>
+  );
+};
 
-<NavBar/>
-
-function NewPage(){
-    <NavBar/>
-    return <p>hehe</p>
-    
-}
 export default NewPage;
