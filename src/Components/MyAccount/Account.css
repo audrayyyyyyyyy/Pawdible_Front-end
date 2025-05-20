@@ -1,8 +1,9 @@
 .account-wrapper {
   background-color: #FD7F42;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
 }
+
 
 .my-account {
   font-family: "Inter", sans-serif;
@@ -10,7 +11,7 @@
   color: white;
   font-size: 20px;
   text-align: center;
-  margin-top: 33px;
+  margin-top: 2rem;
 }
 
 .account-content {
@@ -42,12 +43,19 @@
 }
 
 .account-choices {
+  padding: 0 2rem;
   color: black;
   text-align: left;
   line-height: 3;
-  
+  width: 100%;
 }
-  
+
+.space-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .arrow{
   
 

@@ -4,6 +4,8 @@ import NavBar from '../NavBar/NavBar';
 import axios from "axios";
 import { backendServerIP } from "../../globals";
 import { useNavigate } from 'react-router-dom';
+import RequireLogin from '../Auth/RequireLogin';
+import "./scanner.css"
 
 const api = axios.create({
   baseURL: backendServerIP,
@@ -14,6 +16,8 @@ const api = axios.create({
 const ScanPage = () => {
   const [barcode, setBarcode] = useState('');
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  
 
   const handleBarcodeDetected = async (err, result) => {
     if (result) {
@@ -34,8 +38,20 @@ const ScanPage = () => {
           // barcode: code }, {
           headers: { Authorization: `Token ${token}` }
         });
-        alert("Barcode Detected: " + code);
-        alert("Product Data: " + JSON.stringify(response.data, null, 2));
+
+        const { product, source } = response.data;
+
+        if (!product || Object.keys(product).length === 0) {
+          navigate('/ItemNotFound')
+        } else {
+          navigate('/scan_result', {
+            state: {
+              barcode: code,
+              data: product,
+              source: source
+            }
+          });
+        }
 
       } catch (error) {
         console.error("Failed to log scan:", error);
@@ -44,30 +60,33 @@ const ScanPage = () => {
       }
     }
   };
+  // {alert("Width: " + window.innerWidth + ", Height: " + window.innerHeight)}
 
   return (
-    <div className='flex flex flex-col h-screen w-screen'>
-      <div className='camera-scan-container'>
-        <BarcodeScannerComponent
-          width={window.innerWidth}
-          height={300}
-          onUpdate={handleBarcodeDetected}
+    <RequireLogin>
+      <div className='flex flex-col w-screen h-screen'>
+        <div className='camera-scan-container'>
+          <BarcodeScannerComponent
+            
+            width={window.innerWidth}
+            height={window.innerHeight}
+            onUpdate={handleBarcodeDetected}
+
+            
+          />
+          {/* {barcode && <p>Scanned: {barcode}</p>} */}
+        </div>
+        <NavBar
+          current="scan"
+          routes={{
+            account: "/account",
+            scan: "/scan",
+            history: "/history",
+          }}
         />
-         {loading && <p>Loading...</p>}
-        {/* {barcode && <p>Scanned: {barcode}</p>} */}
       </div>
-      <div>
-        
-      </div>
-      <NavBar
-        current="scan"
-        routes={{
-          account: "/account",
-          scan: "/scan",
-          history: "/history",
-        }}
-      />
-    </div>
+    </RequireLogin>
+    
   );
 };
 

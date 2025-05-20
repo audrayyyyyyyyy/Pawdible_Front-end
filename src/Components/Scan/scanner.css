@@ -1,3 +1,4 @@
-.scan-contatiner {
+.camera-scan-container {
     width: 100vw;
+    max-height: 100dvh;
 }

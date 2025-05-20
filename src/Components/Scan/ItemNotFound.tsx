@@ -37,7 +37,7 @@ function Account() {
                     </div>
                 
             </div>
-            <NavBar />
+           
         </div>
     );
 }
