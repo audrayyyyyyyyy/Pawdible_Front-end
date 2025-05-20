@@ -3,11 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 import NavBar from "../../Components/NavBar/NavBar";
 
-<NavBar/>
-
-function NewPage(){
-    <NavBar/>
+function ItemFoundSafe(){
+    // <NavBar/>
     return <p>hehe</p>
     
 }
-export default NewPage;
+export default ItemFoundSafe;

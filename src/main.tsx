@@ -17,16 +17,20 @@ import ItemFoundSafe from "./Components/Scan/ItemFoundSafe.tsx";
 import ItemNotFound from "./Components/Scan/ItemNotFound.tsx";
 import AuthRedirect from "./Components/AuthRedirect/AuthRedirect.tsx";
 import "./index.css";
+// import NewPage from './Components/MyAccount/NewPage.tsx';
+// import LandingPage from "./Components/Scan/LandingPage.tsx";
+import AuthRedirect from "./Components/AuthRedirect/AuthRedirect.tsx";
+import ScanPage from "./Components/Scan/ScanPage.tsx";
+import ScanResult from "./Components/Scan/ScanResult.tsx";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Login />,
     path: "/",
     // element: <Login />,
     element: <AuthRedirect redirectIfLoggedIn="/scan" />,
     errorElement: <NotFoundPage />,
   },
+
   {
     path: "/login",
     element: <Login />,
@@ -36,16 +40,16 @@ const router = createBrowserRouter([
     element: <Signup />,
   },
   {
+    path: "/scan",
+    // element: <Login />,
+    element: <ScanPage />,
+    // element: <AuthRedirect redirectIfLoggedIn="/scan" />,
+    errorElement: <NotFoundPage />,
+  },
+
+  {
     path: "/MyPets",
     element: <MyPets />,
-  },
-  {
-    path: "/NavBar",
-    element: <NavBar />,
-  },
-  {
-    path: "/NewPage",
-    // element: <NewPage />,
   },
   {
     path: "/Account",
@@ -62,6 +66,10 @@ const router = createBrowserRouter([
   {
     path: "/ItemNotFound",
     element: <ItemNotFound />,
+  },
+  {
+    path: "/scan_result",
+    element: <ScanResult />,
   },
 ]);
 
