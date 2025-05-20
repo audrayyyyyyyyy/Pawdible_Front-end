@@ -20,6 +20,7 @@ import "./index.css";
 // import LandingPage from "./Components/Scan/LandingPage.tsx";
 import AuthRedirect from "./Components/AuthRedirect/AuthRedirect.tsx";
 import ScanPage from "./Components/Scan/ScanPage.tsx";
+import ScanResult from "./Components/Scan/ScanResult.tsx";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
   {
     path: "/ItemNotFound",
     element: <ItemNotFound />,
+  },
+  {
+    path: "/scan_result",
+    element: <ScanResult />
   },
 ]);
 
