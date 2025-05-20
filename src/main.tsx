@@ -6,11 +6,6 @@ import App from "./App.tsx";
 import Signup from "./Components/LoginSignup/Signup.tsx";
 import Login from "./Components/LoginSignup/Login.tsx";
 import NotFoundPage from "./Components/LoginSignup/NotFoundPage.tsx";
-import App from "./App.tsx";
-
-import Signup from "./Components/LoginSignup/Signup.tsx";
-import Login from "./Components/LoginSignup/Login.tsx";
-import NotFoundPage from "./Components/LoginSignup/NotFoundPage.tsx";
 
 import NavBar from "./Components/NavBar/NavBar.tsx";
 
@@ -20,10 +15,8 @@ import ItemFoundUnsafe from "./Components/Scan/ItemFoundUnsafe.tsx";
 import ItemFoundSafe from "./Components/Scan/ItemFoundSafe.tsx";
 
 import ItemNotFound from "./Components/Scan/ItemNotFound.tsx";
-
+import AuthRedirect from "./Components/AuthRedirect/AuthRedirect.tsx";
 import "./index.css";
-// import NewPage from './Components/MyAccount/NewPage.tsx';
-import LandingPage from "./Components/Scan/LandingPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -69,10 +62,6 @@ const router = createBrowserRouter([
   {
     path: "/ItemNotFound",
     element: <ItemNotFound />,
-  },
-  {
-    path: "/LandingPage",
-    element: <LandingPage />,
   },
 ]);
 
