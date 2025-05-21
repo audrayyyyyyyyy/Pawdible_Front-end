@@ -30,7 +30,7 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-h1 {
+.h1-new-item {
   background: linear-gradient(to bottom, #ff7e26, #ff9933);
   color: white;
   padding: 15px;

@@ -5,7 +5,9 @@ import axios from "axios";
 import { backendServerIP } from "../../globals";
 import { useNavigate } from 'react-router-dom';
 import RequireLogin from '../Auth/RequireLogin';
-import "./scanner.css"
+import "./ScanPage.css"
+
+import BarcodeScanner from './CustomScanner/BarcodeScanner';
 
 const api = axios.create({
   baseURL: backendServerIP,
@@ -18,6 +20,10 @@ const ScanPage = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   
+  const handleCustomScanner = (barcode : string) => {
+    alert(barcode);
+    handleBarcodeDetected(null, barcode)
+  }
 
   const handleBarcodeDetected = async (err, result) => {
     if (result) {
@@ -27,7 +33,7 @@ const ScanPage = () => {
 
       // Vibrate the device for 200 milliseconds
       if (navigator.vibrate) {
-        navigator.vibrate(200);
+        navigator.vibrate(300);
       }
 
       try {
@@ -64,17 +70,18 @@ const ScanPage = () => {
 
   return (
     <RequireLogin>
-      <div className='flex flex-col w-screen h-screen'>
-        <div className='camera-scan-container'>
+      <div className='scan-wrapper'>
+        <div className='page-content'>
           <BarcodeScannerComponent
-            
-            width={window.innerWidth}
-            height={window.innerHeight}
-            onUpdate={handleBarcodeDetected}
+              
+              // width={window.innerWidth}
+              // height={window.innerHeight}
+              onUpdate={handleBarcodeDetected}
 
-            
-          />
-          {/* {barcode && <p>Scanned: {barcode}</p>} */}
+              
+            />
+
+          {/* <BarcodeScanner onDetected={handleCustomScanner}/> */}
         </div>
         <NavBar
           current="scan"
@@ -85,6 +92,26 @@ const ScanPage = () => {
           }}
         />
       </div>
+      {/* <div className='flex flex-col w-screen h-screen'>
+        <div className='camera-scan-container'>
+          <BarcodeScannerComponent
+            
+            width={window.innerWidth}
+            height={window.innerHeight}
+            onUpdate={handleBarcodeDetected}
+
+            
+          />
+        </div>
+        <NavBar
+          current="scan"
+          routes={{
+            account: "/account",
+            scan: "/scan",
+            history: "/history",
+          }}
+        />
+      </div> */}
     </RequireLogin>
     
   );

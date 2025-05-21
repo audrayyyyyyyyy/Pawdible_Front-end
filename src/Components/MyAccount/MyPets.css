@@ -1,15 +1,53 @@
 .my-pets-container {
-  background-color: white;
-  background-image: linear-gradient(#fd7f42);
-  background-repeat: no-repeat;
-  background-size: 100% 30px;
+  /* background-color: white;
+  /* background-image: linear-gradient(#fd7f42); */
+  /* background-repeat: no-repeat; */
+  /* background-size: 100% 30px; */ */
 
-  width: 100vw;
-  height: 100vh;
+  /* width: 100vw; */
+  /* height: 100vh; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; Centers horizontally */
+
+  /* display: flex; */
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centers horizontally */
+  min-height: 100dvh;
+  background: #FD7F42;
+  width: 100dvw;
 }
+
+
+.page-content{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  /* min-height: 100dvh; */
+}
+
+.my-pets-page-header{
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.my-pets-page-body {
+  color: black;
+  background-color: white;
+  flex: 1;
+  border-radius: 2rem 2rem 0rem 0rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
 
 .accent-div {
   padding: 1rem;
@@ -18,37 +56,65 @@
 }
 
 .my-pets-header {
-  font-size: 20px;
-  font-weight: bold;
+  font-family: 'Inter' sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
   color: #484848;
-  text-align: center;
-  padding: 30px;
+  /* text-align: center; */
+  /* padding: 30px; */
   /* margin-top: 12px; */
-  width: 100vw;
+  /* width: 100dvw; */
 }
 
-.pet-list {
+
+.my-pets-page-content{
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  width: 100vw;
+  flex-direction: column;
+  flex: 1;
+  /* min-height: 100dvh; */
 }
 
-.pet-item {
+.my-pets-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.my-pets-list {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  gap: 20px;
+  overflow-x: auto;
+  /* -webkit-overflow-scrolling: touch; */
+  cursor: grab;
+  /* padding-bottom: 0.5rem; */
+  /* width: 100vw; */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.my-pets-list-item {
+  background-color: #F5883F;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  min-width: 7rem;
+  height: 9rem;
+  border-radius: 1.25rem;
+  padding: 1rem;
 }
 
 .pet-image {
-  width: 75px;
+  width: 4rem;
   border-radius: 20%;
   background-size: cover;
   background-position: center;
 }
 
 .pet-image.cat {
-  background-color: #ff9a58; /* Placeholder for Putot image */
+  background-color:rgba(255, 155, 88, 0); /* Placeholder for Putot image */
 }
 
 .pet-image.dog {
@@ -56,30 +122,32 @@
 }
 
 .pet-name {
+  font-family: "Inter", sans-serif;
   margin-top: 10px;
   font-size: 1rem;
-  color: #333;
+  color: white;
   font-weight: bold;
 }
 
 .add-pet-section {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 100vw;
-  padding: 20px;
+  /* align-items: center; */
+  /* width: 100vw; */
+  /* padding: 20px; */
 }
 
 .add-pet-header {
-  font-size: 1.2rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.25rem;
   font-weight: bold;
   color: #484848;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 
 .pet-type-selection {
-  width: 100%;
-  max-width: 300px;
+  /* width: 100%; */
+  /* max-width: 300px; */
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -87,6 +155,8 @@
 
 .pet-type-header {
   font-size: 1rem;
+  font-weight: 500;
+  font-family: "Inter", sans-serif;
   color: #333;
   margin-bottom: 10px;
 }
@@ -95,13 +165,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px;
+  padding: 0px;
+  padding-left: 2rem;
   border-radius: 16px;
   cursor: pointer;
+  height: 7rem;
 }
 
 .pet-type-option.selected {
-  border: 2px solid #ff7a3e;
+  /* border: px solid #ff7a3e; */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+  transform: scale(1.03);
+  transition: all 0.2s ease;
 }
 
 .pet-type-option:nth-child(2) {
@@ -113,13 +188,14 @@
 }
 
 .pet-type-label {
-  font-size: 19px;
+  font-size: 1.25rem;
+  font-weight: 500;
   color: white;
 }
 
 .pet-type-image {
-  width: 60px;
-  height: 60px;
+  /* width: 60px; */
+  height: 7rem;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -134,8 +210,8 @@
 }
 
 .pet-name-input {
-  width: 100%;
-  max-width: 300px;
+  /* width: 100%; */
+  /* max-width: 300px; */
   background-color: #cdd0d8;
   border-radius: 65px;
   padding: 5px;
@@ -143,8 +219,8 @@
 }
 
 .submit-button {
-  width: 100%;
-  max-width: 300px;
+  /* width: 100%; */
+  /* max-width: 300px; */
   background-color: #ff7a3e;
   color: white;
   font-weight: bold;

@@ -9,9 +9,63 @@ const MyHistory = () => {
 
   return (
     <div className="history-wrapper">
-      <h1>My History</h1>
-      <div className="container">
-        <button className="submit-button">Submit</button>
+      <div className="page-content">
+        <div className="page-header">
+          My History
+        </div>
+        <div className="page-body">
+          <div className="history-item">
+            <img className="history-product-image" src={"https://picsum.photos/60"} alt="Logo" />
+            
+            <div className="history-info">
+              <p className="history-info-product-name">Piatos Cheese flavoured potato chips</p>
+              <p className="history-info-product-manufacturer">Jack 'n Jill</p>
+              <p className="history-info-num-grams">85g</p>
+            </div>
+
+          </div>
+          <div className="history-item">
+            <img className="history-product-image" src={"https://picsum.photos/60"} alt="Logo" />
+            
+            <div className="history-info">
+              <p className="history-info-product-name">Piatos Cheese flavoured potato chips</p>
+              <p className="history-info-product-manufacturer">Jack 'n Jill</p>
+              <p className="history-info-num-grams">85g</p>
+            </div>
+
+          </div>
+          <div className="history-item">
+            <img className="history-product-image" src={"https://picsum.photos/60"} alt="Logo" />
+            
+            <div className="history-info">
+              <p className="history-info-product-name">Piatos Cheese flavoured potato chips</p>
+              <p className="history-info-product-manufacturer">Jack 'n Jill</p>
+              <p className="history-info-num-grams">85g</p>
+            </div>
+
+          </div>
+          <div className="history-item">
+            <img className="history-product-image" src={"https://picsum.photos/60"} alt="Logo" />
+            
+            <div className="history-info">
+              <p className="history-info-product-name">Piatos Cheese flavoured potato chips</p>
+              <p className="history-info-product-manufacturer">Jack 'n Jill</p>
+              <p className="history-info-num-grams">85g</p>
+            </div>
+
+          </div>
+          <div className="history-item">
+            <img className="history-product-image" src={"https://picsum.photos/60"} alt="Logo" />
+            
+            <div className="history-info">
+              <p className="history-info-product-name">Piatos Cheese flavoured potato chips</p>
+              <p className="history-info-product-manufacturer">Jack 'n Jill</p>
+              <p className="history-info-num-grams">85g</p>
+            </div>
+
+          </div>
+          
+        </div>
       </div>
       <NavBar
         current="history"
