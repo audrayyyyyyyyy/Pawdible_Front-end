@@ -1,7 +1,6 @@
-.my-pets-container{
+.my-pets-container {
   background-color: white;
-  background-image:
-    linear-gradient(#FD7F42);
+  background-image: linear-gradient(#fd7f42);
   background-repeat: no-repeat;
   background-size: 100% 30px;
 
@@ -10,7 +9,6 @@
   display: flex;
   flex-direction: column;
   align-items: center; /* Centers horizontally */
-
 }
 
 .accent-div {
@@ -18,7 +16,6 @@
   width: 100vw;
   background-color: #ff9a58;
 }
-
 
 .my-pets-header {
   font-size: 20px;
@@ -45,7 +42,6 @@
 
 .pet-image {
   width: 75px;
-  height: 75px;
   border-radius: 20%;
   background-size: cover;
   background-position: center;
@@ -140,10 +136,10 @@
 .pet-name-input {
   width: 100%;
   max-width: 300px;
-  background-color: #CDD0D8;
+  background-color: #cdd0d8;
   border-radius: 65px;
   padding: 5px;
-  margin: 20px ;
+  margin: 20px;
 }
 
 .submit-button {
@@ -159,4 +155,3 @@
 .submit-button:hover {
   background-color: #ff9a58;
 }
-

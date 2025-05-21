@@ -10,7 +10,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
-.container {
+.add-new-item-container {
   background: linear-gradient(to bottom, #ff7e26, #ff9933);
   background-repeat: no-repeat;
   background-size: 100% 60px;

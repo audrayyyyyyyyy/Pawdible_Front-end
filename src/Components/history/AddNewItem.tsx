@@ -8,7 +8,7 @@ const AddNewItem = () => {
   const [ingredientsImage, setIngredientsImage] = useState(null);
 
   return (
-    <div className="container">
+    <div className="add-new-item-container">
       <h1>Add New Item</h1>
 
       <input
@@ -55,7 +55,14 @@ const AddNewItem = () => {
         )}
       </div>
       <button className="submit-button">Submit</button>
-      <NavBar />
+      <NavBar
+        current="history"
+        routes={{
+          account: "/account",
+          scan: "/scan",
+          history: "/history",
+        }}
+      />
     </div>
   );
 };
