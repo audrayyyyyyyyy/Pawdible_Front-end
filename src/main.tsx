@@ -17,11 +17,12 @@ import ItemFoundSafe from "./Components/Scan/ItemFoundSafe.tsx";
 import ItemNotFound from "./Components/Scan/ItemNotFound.tsx";
 import AuthRedirect from "./Components/AuthRedirect/AuthRedirect.tsx";
 import "./index.css";
-// import NewPage from './Components/MyAccount/NewPage.tsx';
-// import LandingPage from "./Components/Scan/LandingPage.tsx";
-import AuthRedirect from "./Components/AuthRedirect/AuthRedirect.tsx";
+
 import ScanPage from "./Components/Scan/ScanPage.tsx";
 import ScanResult from "./Components/Scan/ScanResult.tsx";
+
+import AddNewItem from "./Components/History/AddNewItem.tsx";
+import MyHistory from "./Components/History/MyHistory.tsx";
 
 const router = createBrowserRouter([
   {
@@ -70,6 +71,15 @@ const router = createBrowserRouter([
   {
     path: "/scan_result",
     element: <ScanResult />,
+  },
+
+  {
+    path: "/history",
+    element: <MyHistory />,
+  },
+  {
+    path: "/add-product",
+    element: <AddNewItem />,
   },
 ]);
 
