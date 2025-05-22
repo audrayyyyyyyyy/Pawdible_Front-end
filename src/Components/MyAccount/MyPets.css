@@ -210,12 +210,30 @@
 }
 
 .pet-name-input {
-  /* width: 100%; */
-  /* max-width: 300px; */
-  background-color: #cdd0d8;
+  box-sizing: border-box;
+  /* height: 2.375rem; */
+  
+  background-color: #F2F2F2;
   border-radius: 65px;
-  padding: 5px;
-  margin: 20px;
+  border-color: #F5883F;
+  padding: 1rem;
+
+  margin-top: 1.5rem;
+
+  font-size: 1rem;
+  color: #white;
+  /* color: #CDD0D8; */
+}
+
+.pet-name-input::placeholder {
+  font-family: "Inter" sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+}
+input::placeholder {
+  font-family: "Inter" sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 .submit-button {
@@ -230,4 +248,28 @@
 
 .submit-button:hover {
   background-color: #ff9a58;
+}
+
+.my-pets-page-body {
+  margin: 0px auto;
+}
+
+@media only screen and (max-width: 600px) {
+  
+  .submit-button {
+    /* width: 100%; */
+    /* max-width: 300px; */
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    border-radius: 65px;
+    cursor: pointer;
+  }
+
+  .my-pets-page-body {
+    margin: 0px;
+  }
+  
+    
+
 }

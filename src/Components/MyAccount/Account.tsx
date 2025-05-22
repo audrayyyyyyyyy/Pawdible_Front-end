@@ -37,7 +37,9 @@ function Account() {
         </div>
 
         <div className="account-content">
-          <div className="account-avatar"></div>
+          <div className="account-avatar">
+            
+          </div>
           <div className="account-name">{username}</div>
 
           <div className="account-choices">

@@ -1,6 +1,6 @@
 /* Make sure there's no syntax in .jsx file! */
 
-* {
+/* * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -8,17 +8,25 @@
 
 body {
   font-family: Arial, sans-serif;
-}
+} */
 
 .add-new-item-container {
-  background: linear-gradient(to bottom, #ff7e26, #ff9933);
+  /* background: linear-gradient(to bottom, #ff7e26, #ff9933);
   background-repeat: no-repeat;
   background-size: 100% 60px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px 10px 80px; /* extra bottom for nav */
+  padding: 20px 10px 80px; extra bottom for nav */
+  
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  background: #FD7F42;
+  width: 100dvw;
+
+
 }
 
 .add-new-item {
@@ -54,7 +62,6 @@ body {
   margin-top: 10px;
   display: block;
 }
-
 .upload-box {
   border: 2px dashed #ff9933;
   border-radius: 10px;
@@ -62,28 +69,40 @@ body {
   text-align: center;
   position: relative;
   margin-bottom: 20px;
+  overflow: hidden;
 }
 
+/* Stretch input over the box */
 .upload-box input[type="file"] {
   position: absolute;
-  opacity: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  opacity: 0;
   cursor: pointer;
+  z-index: 2;
 }
 
-.upload-box img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
+/* Ensure visuals stay visible underneath the input */
+.upload-box img,
 .upload-placeholder {
-  color: #aaa;
+  position: relative;
+  z-index: 1;
+  pointer-events: none; /* important so clicks go through */
 }
+
 
 .upload-placeholder span {
   font-size: 24px;
+}
+
+.upload-box img, .upload-placeholder {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+
+  width: 100%;
 }
 
 .submit-button {

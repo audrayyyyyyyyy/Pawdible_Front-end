@@ -68,7 +68,8 @@ function MyPets() {
                 </div>
 
                 {/* Pet Name Input */}
-                <div className="pet-name-input"> Pet Name </div>
+                <input type="text" className="pet-name-input" placeholder="Pet name"></input>
+                {/* <div className="pet-name-input"> Pet Name </div> */}
 
                 {/* Submit Button */}
                 <button className="submit-button"> Submit </button>

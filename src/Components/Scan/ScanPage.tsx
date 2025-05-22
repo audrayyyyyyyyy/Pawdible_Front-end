@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import RequireLogin from '../Auth/RequireLogin';
 import "./ScanPage.css"
 
-import BarcodeScanner from './CustomScanner/BarcodeScanner';
+// import BarcodeScanner from './CustomScanner/BarcodeScanner';
 
 const api = axios.create({
   baseURL: backendServerIP,
@@ -40,8 +40,6 @@ const ScanPage = () => {
         const token = localStorage.getItem('token');
         const response = await api.get('/scan', {
           params: {barcode : code},
-          // headers: {}
-          // barcode: code }, {
           headers: { Authorization: `Token ${token}` }
         });
 
@@ -60,6 +58,7 @@ const ScanPage = () => {
         }
 
       } catch (error) {
+        alert("An error has occured" + err);
         console.error("Failed to log scan:", error);
       } finally {
         setLoading(false);
