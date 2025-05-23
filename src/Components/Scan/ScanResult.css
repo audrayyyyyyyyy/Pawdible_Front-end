@@ -1,3 +1,27 @@
-.tessst {
-    color: black;
+.scan-result-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  background: #FD7F42;
+  width: 100dvw;
+}
+
+.scan-result-page-header {
+  height: 13rem;
+}
+
+.scan-result-page-header > img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.scan-result-page-body {
+  color: black;
+  background-color: white;
+  flex: 1;
+  border-radius: 2rem 2rem 0rem 0rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }

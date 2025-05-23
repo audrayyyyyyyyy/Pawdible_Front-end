@@ -32,6 +32,7 @@
   border-radius: 100%;
   margin: 20px; /* Vertical spacing */
   margin-top: 75px;
+  background-image: url("https://picsum.photos/100");
 }
 
 .account-name {
