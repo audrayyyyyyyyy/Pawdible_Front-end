@@ -21,66 +21,70 @@ const ScanPage = () => {
   const navigate = useNavigate();
   
   const handleCustomScanner = (barcode : string) => {
-    alert(barcode);
+    // alert(barcode);
     handleBarcodeDetected(null, barcode)
   }
 
   const handleBarcodeDetected = async (err, result) => {
-    if (result) {
-      const code = result.text;
-      setBarcode(code);
-      setLoading(true);
-
-      // Vibrate the device for 200 milliseconds
-      if (navigator.vibrate) {
-        navigator.vibrate(300);
-      }
-
-      try {
-        const token = localStorage.getItem('token');
-        const response = await api.get('/scan', {
-          params: {barcode : code},
-          headers: { Authorization: `Token ${token}` }
+    if (loading || !result) return; // prevent multiple scans
+  
+    const code = result.text;
+    setBarcode(code);
+    setLoading(true);
+  
+    if (navigator.vibrate) {
+      navigator.vibrate(300);
+    }
+  
+    try {
+      const token = localStorage.getItem('token');
+      const response = await api.get('/scan', {
+        params: { barcode: code },
+        headers: { Authorization: `Token ${token}` }
+      });
+  
+      const { product, source } = response.data;
+  
+      if (!product || Object.keys(product).length === 0) {
+        navigate('/ItemNotFound');
+      } else {
+        const historyItem = {
+          barcode: code,
+          product: product,
+          timestamp: new Date().toISOString(),
+        };
+  
+        let historyString = localStorage.getItem('scanHistory');
+        let existingHistory = historyString ? JSON.parse(historyString) : [];
+        const updatedHistory = [historyItem, ...existingHistory].slice(0, 50);
+        localStorage.setItem('scanHistory', JSON.stringify(updatedHistory));
+  
+        navigate('/scan_result', {
+          state: {
+            barcode: code,
+            data: product,
+            source: source
+          }
         });
-
-        const { product, source } = response.data;
-
-        if (!product || Object.keys(product).length === 0) {
-          navigate('/ItemNotFound')
-        } else {
-          navigate('/scan_result', {
-            state: {
-              barcode: code,
-              data: product,
-              source: source
-            }
-          });
-        }
-
-      } catch (error) {
-        alert("An error has occured" + err);
-        console.error("Failed to log scan:", error);
-      } finally {
-        setLoading(false);
       }
+  
+    } catch (error) {
+      alert("An error has occurred: " + error.message);
+      console.error("Failed to log scan:", error);
+    } finally {
+      setLoading(false);
     }
   };
-  // {alert("Width: " + window.innerWidth + ", Height: " + window.innerHeight)}
-
+  
+    
+  
   return (
     <RequireLogin>
       <div className='scan-wrapper'>
         <div className='page-content'>
           <BarcodeScannerComponent
-              
-              // width={window.innerWidth}
-              // height={window.innerHeight}
               onUpdate={handleBarcodeDetected}
-
-              
             />
-
-          {/* <BarcodeScanner onDetected={handleCustomScanner}/> */}
         </div>
         <NavBar
           current="scan"
@@ -91,26 +95,6 @@ const ScanPage = () => {
           }}
         />
       </div>
-      {/* <div className='flex flex-col w-screen h-screen'>
-        <div className='camera-scan-container'>
-          <BarcodeScannerComponent
-            
-            width={window.innerWidth}
-            height={window.innerHeight}
-            onUpdate={handleBarcodeDetected}
-
-            
-          />
-        </div>
-        <NavBar
-          current="scan"
-          routes={{
-            account: "/account",
-            scan: "/scan",
-            history: "/history",
-          }}
-        />
-      </div> */}
     </RequireLogin>
     
   );

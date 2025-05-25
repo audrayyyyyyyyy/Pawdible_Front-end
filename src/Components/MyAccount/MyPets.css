@@ -121,6 +121,10 @@
   background-color: #ff9a58; /* Placeholder for Choco image */
 }
 
+.dog {
+  background-color: #F1B24E;
+}
+
 .pet-name {
   font-family: "Inter", sans-serif;
   margin-top: 10px;

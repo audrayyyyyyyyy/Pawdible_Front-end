@@ -25,3 +25,94 @@
   flex-direction: column;
   gap: 1.25rem;
 }
+
+.scan-result-main-info {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+}
+
+.scan-main-info-img {
+  width: 3.75rem;
+  height: 3.75rem;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.scan-main-info-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.scan-info-details-product-name {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.scan-info-details-manufacturer, .scan-info-details-num-grams{
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #b3b3b3;
+}
+.scan-result-ingredients-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.scan-result-ingredients-label {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+
+.scan-result-ingredients {
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.scan-another {
+  background-color: #F5883F;
+  color: white;
+}
+
+.toxic-ingredient {
+  color: red;
+  font-weight: bold;
+  background-color: #ffe6e6;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.accordion-toggle {
+  background-color: #ffe4e1;
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+  border-radius: 5px;
+  width: 100%;
+  text-align: left;
+}
+
+.accordion-content {
+  padding: 10px;
+  background-color: #fff3f3;
+  border: 1px solid #ffa4a4;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.toxic-info-card {
+  margin-bottom: 15px;
+}
+
+.toxin-name {
+  color: red;
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+}

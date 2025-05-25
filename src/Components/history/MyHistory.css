@@ -19,6 +19,7 @@
 .history-item {
   display: flex;
   gap: 1.5rem;
+  cursor: pointer;
 }
 
 .page-content{
@@ -63,7 +64,13 @@
 
 .history-info-product-name {
   font-family: "Inter", sans-serif;
-  font-weight: 
+  font-size: 1rem;
+}
+
+.history-info-product-manufacturer, .history-info-num-grams{
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  color: #b3b3b3;
 }
 
 .container {
@@ -99,6 +106,25 @@ h1 {
   margin-top: 10px;
   cursor: pointer;
 }
+
+.clear-history-btn {
+  background-color: #FF1845;
+  color: white;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  -webkit-tap-highlight-color: transparent; /* ✅ Removes tap overlay */
+  /* -webkit-focus-ring-color: transparent;    ✅ Removes blue ring on long press */
+  user-select: none;                        /* Optional: prevents text selection on long press */
+}
+
+.clear-history-btn:focus,
+.clear-history-btn:active {
+  background-color: #FF526D; /* lighter/redder tint */
+  outline: none;
+  box-shadow: none;
+}
+
 
 @media (max-width: 480px) {
   .add-new-item {

@@ -1,16 +1,90 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./MyPets.css";
 import NavBar from "../../Components/NavBar/NavBar";
 
 import RequireLogin from "../Auth/RequireLogin";
+import axios from "axios";
+import { backendServerIP } from "../../globals";
+
+const api = axios.create({
+  baseURL: backendServerIP,
+  headers: { "Content-Type": "application/json" },
+})
+
+type Pet = {
+  id?: number;       // if you receive IDs from the backend
+  name: string;
+  type: "Dog" | "Cat";
+};
+
 
 function MyPets() {
-  const [selectedPetType, setSelectedPetType] = useState(null);
-  const [setPetName] = useState("");
+  const [pets, setPets] = useState([]);
 
-  const handlePetTypeSelect = (type) => {
+  const [selectedPetType, setSelectedPetType] = useState(null);
+  const [petName, setPetName] = useState("");
+
+  const handlePetTypeSelect = (type : string) => {
     setSelectedPetType(type);
   };
+
+  const handleSubmit = async () => {
+    if (!selectedPetType || !petName.trim()) {
+      alert("Please provide both pet type and name.");
+      return;
+    }
+  
+    const token = localStorage.getItem("token");
+    if (!token) {
+      alert("You must be logged in.");
+      return;
+    }
+  
+    try {
+      const response = await api.post(
+        "/my_pets/",
+        {
+          name: petName.trim(),
+          type: selectedPetType,
+        },
+        {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        }
+      );
+  
+      alert("Pet added successfully!");
+      setPets(prev => [...prev, response.data]); // add new pet to UI list
+      setPetName("");
+      setSelectedPetType(null);
+    } catch (error) {
+      console.error("Error adding pet:", error);
+      alert("Failed to add pet.");
+    }
+  };
+  
+
+  useEffect(() => {
+    const fetchPets = async () => {
+      const token = localStorage.getItem("token");
+      if (!token) return;
+  
+      try {
+        const response = await api.get("/my_pets/", {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        });
+        setPets(response.data); // update pet list
+      } catch (error) {
+        console.error("Failed to load pets:", error);
+      }
+    };
+  
+    fetchPets();
+  }, []);
+  
 
   return (
     <RequireLogin>
@@ -26,7 +100,7 @@ function MyPets() {
               
               {/* Pet List */}
               <div className="my-pets-list">
-                <div className="my-pets-list-item">
+                {/* <div className="my-pets-list-item">
                   <img src="images/my-pet-cat.svg"  className="pet-image cat"/>
                   <div className="pet-name">Putot</div>
                 </div>
@@ -41,7 +115,18 @@ function MyPets() {
                 <div className="my-pets-list-item">
                   <img src="images/my-pet-cat.svg"  className="pet-image cat"/>
                   <div className="pet-name">Putot</div>
-                </div>
+                </div> */}
+
+                {pets.map((pet) => (
+                  <div className={`my-pets-list-item ${pet.type.toLowerCase()}`} key={pet.id}>
+                    <img
+                      src={`images/my-pet-${pet.type.toLowerCase()}.svg`}
+                      className={`pet-image ${pet.type.toLowerCase()}`}
+                    />
+                    <div className="pet-name">{pet.name}</div>
+                  </div>
+                ))}
+
               </div>
             </div>
 
@@ -68,11 +153,21 @@ function MyPets() {
                 </div>
 
                 {/* Pet Name Input */}
-                <input type="text" className="pet-name-input" placeholder="Pet name"></input>
+                <input
+                  type="text"
+                  className="pet-name-input"
+                  placeholder="Pet name"
+                  value={petName}
+                  onChange={(e) => setPetName(e.target.value)}
+                />
+
                 {/* <div className="pet-name-input"> Pet Name </div> */}
 
                 {/* Submit Button */}
-                <button className="submit-button"> Submit </button>
+                <button className="submit-button" onClick={handleSubmit}>
+                  Submit
+                </button>
+
 
               </div>
 
