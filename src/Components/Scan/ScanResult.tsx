@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import "./ScanResult.css";
 import NavBar from '../NavBar/NavBar';
 import { backendServerIP } from '../../globals';
+import axios from 'axios';
+
+
+const api = axios.create({
+  baseURL: backendServerIP,
+  headers: { "Content-Type": "application/json" },
+});
 
 const PET_TOXINS = {
   "xylitol": {
@@ -68,92 +75,141 @@ const PET_TOXINS = {
 };
 
 const ScanResult = () => {
-    const location = useLocation();
-    const { barcode, data, source } = location.state || {};
-    const navigate = useNavigate();
-    const [accordionOpen, setAccordionOpen] = useState(true);
-  
-    const ingredients = data.ingredients.toLowerCase().split(/[\n,]+/).map(i => i.trim());
-  
-    const toxicMatches = Object.keys(PET_TOXINS).filter(toxin =>
-      ingredients.some(ingredient => ingredient.includes(toxin))
-    );
-  
-    const highlightToxicIngredients = () => {
-      let result = data.ingredients;
-      for (const toxin of Object.keys(PET_TOXINS)) {
-        const regex = new RegExp(`\\b(${toxin})\\b`, 'gi');
-        result = result.replace(regex, match => `<span class="toxic-ingredient">${match.toUpperCase()}</span>`);
-      }
-      return result.toUpperCase();
-    };
-  
-    return (
-      <div className='scan-result-wrapper'>
-        <div className="page-content">
-          <div className='scan-result-page-header'>
-            <img src={backendServerIP + data.frontPicture} alt="Front" style={{ width: '100%' }} />
-          </div>
-          <div className='scan-result-page-body'>
-            <div className='scan-result-main-info'>
-              <img className="scan-main-info-img" src={backendServerIP + data.frontPicture} alt="" />
-              <div className="scan-main-info-details">
-                <h2 className='scan-info-details-product-name'> {data.name} </h2>
-                <p className='scan-info-details-manufacturer'> {data.manufacturer} </p>
-                <p className='scan-info-details-num-grams'> {data.numGrams}g</p>
-              </div>
-            </div>
-  
-            <hr />
-            <div className='scan-result-ingredients-container'>
-              <h5 className='scan-result-ingredients-label'> Ingredients: </h5>
-              <p className='scan-result-ingredients' dangerouslySetInnerHTML={{ __html: highlightToxicIngredients() }} />
-            </div>
-  
-            {/* Toxin Results */}
-            {toxicMatches.length > 0 ? (
-              <div className='toxic-accordion'>
-                <button className="accordion-toggle" onClick={() => setAccordionOpen(!accordionOpen)}>
-                  ⚠ Toxic Ingredients Found ({toxicMatches.length}) {accordionOpen ? '▲' : '▼'}
-                </button>
-                {accordionOpen && (
-                  <div className="accordion-content">
-                    {toxicMatches.map((toxinKey, idx) => {
-                      const toxinInfo = PET_TOXINS[toxinKey];
-                      return (
-                        <div key={idx} className="toxic-info-card">
-                          <h4 className="toxin-name">{toxinKey.toUpperCase()}</h4>
-                          <p><strong>Pets affected:</strong> {toxinInfo.pets.join(', ')}</p>
-                          <p>{toxinInfo.info}</p>
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            ) : (
-              <div className="no-toxins-message">
-                ✅ <strong>No toxic ingredients found for pets.</strong>
-              </div>
-            )}
-  
-            <button onClick={() => navigate('/')} className="scan-another">
-              Scan Another
-            </button>
-          </div>
-        </div>
-  
-        <NavBar
-          current="scan"
-          routes={{
-            account: "/account",
-            scan: "/scan",
-            history: "/history",
-          }}
-        />
-      </div>
-    );
+  const location = useLocation();
+  const { barcode, data, source } = location.state || {};
+  const navigate = useNavigate();
+  const [accordionOpen, setAccordionOpen] = useState(true);
+  const [userPets, setUserPets] = useState([]);
+  const [affectedPets, setAffectedPets] = useState<string[]>([]);
+
+  const ingredients = data.ingredients.toLowerCase().split(/[\n,]+/).map(i => i.trim());
+
+  const toxicMatches = Object.keys(PET_TOXINS).filter(toxin =>
+    ingredients.some(ingredient => ingredient.includes(toxin))
+  );
+
+  // Highlight toxins
+  const highlightToxicIngredients = () => {
+    let result = data.ingredients.toUpperCase();
+    for (const toxin of Object.keys(PET_TOXINS)) {
+      const regex = new RegExp(`\\b(${toxin})\\b`, 'gi');
+      result = result.replace(regex, match => `<span class="toxic-ingredient">${match.toUpperCase()}</span>`);
+    }
+    return result;
   };
 
+  // Fetch user's pets and check for affected pets
+  // useEffect(() => {
+  //   const fetchPets = async () => {
+  //     const token = localStorage.getItem("token");
+  //     if (!token) return;
+
+  //     try {
+  //       const res = await api.get("/my_pets/", {
+  //         headers: { Authorization: `Token ${token}` },
+  //       });
+  //       setUserPets(res.data);
+        
+  //       // Check which of the user's pets are affected
+  //       const petTypes = res.data.map(p => p.type.toLowerCase());
+  //       console.log("Pet Types: " + petTypes);
+  //       const affected = new Set<string>();
+
+  //       for (const toxin of toxicMatches) {
+  //         const toxinInfo = PET_TOXINS[toxin];
+  //         toxinInfo.pets.forEach(pet => {
+  //           if (petTypes.includes(pet)) {
+  //             affected.add(pet.charAt(0).toUpperCase() + pet.slice(1)); // capitalize
+  //           }
+  //         });
+  //       }
+
+  //       setAffectedPets(Array.from(affected));
+  //       console.log("Affected Pets: " + affectedPets);
+
+  //     } catch (error) {
+  //       console.error("Failed to fetch user pets:", error);
+  //     }
+  //   };
+
+  //   fetchPets();
+  // }, [toxicMatches]);
+
+  return (
+    <div className='scan-result-wrapper'>
+      <div className="page-content">
+        <div className='scan-result-page-header'>
+          <img src={backendServerIP + data.frontPicture} alt="Front" style={{ width: '100%' }} />
+        </div>
+
+        <div className='scan-result-page-body'>
+          <div className='scan-result-main-info'>
+            <img className="scan-main-info-img" src={backendServerIP + data.frontPicture} alt="" />
+            <div className="scan-main-info-details">
+              <h2 className='scan-info-details-product-name'> {data.name} </h2>
+              <p className='scan-info-details-manufacturer'> {data.manufacturer} </p>
+              <p className='scan-info-details-num-grams'> {data.numGrams}g</p>
+            </div>
+          </div>
+
+          <hr />
+
+          <div className='scan-result-ingredients-container'>
+            <h5 className='scan-result-ingredients-label'> Ingredients: </h5>
+            <p className='scan-result-ingredients' dangerouslySetInnerHTML={{ __html: highlightToxicIngredients() }} />
+          </div>
+
+          {/* 🐾 Affected Pet Warning */}
+          {affectedPets.length > 0 && (
+            <div className="affected-pets-warning">
+              <h4>⚠ This product may be harmful to your pets: {affectedPets.join(", ")}</h4>
+              <p>Please review the toxin details below carefully.</p>
+            </div>
+          )}
+
+          {/* ⚠ Toxin Accordion */}
+          {toxicMatches.length > 0 ? (
+            <div className='toxic-accordion'>
+              <button className="accordion-toggle" onClick={() => setAccordionOpen(!accordionOpen)}>
+                ⚠ Toxic Ingredients Found ({toxicMatches.length}) {accordionOpen ? '▲' : '▼'}
+              </button>
+              {accordionOpen && (
+                <div className="accordion-content">
+                  {toxicMatches.map((toxinKey, idx) => {
+                    const toxinInfo = PET_TOXINS[toxinKey];
+                    return (
+                      <div key={idx} className="toxic-info-card">
+                        <h4 className="toxin-name">{toxinKey.toUpperCase()}</h4>
+                        <p><strong>Pets affected:</strong> {toxinInfo.pets.join(', ')}</p>
+                        <p>{toxinInfo.info}</p>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="no-toxins-message">
+              <img src="images/no-toxins-found.svg" alt="" />
+            </div>
+          )}
+
+          <button onClick={() => navigate('/')} className="scan-another">
+            Scan Another
+          </button>
+        </div>
+      </div>
+
+      <NavBar
+        current="scan"
+        routes={{
+          account: "/account",
+          scan: "/scan",
+          history: "/history",
+        }}
+      />
+    </div>
+  );
+};
 
 export default ScanResult;

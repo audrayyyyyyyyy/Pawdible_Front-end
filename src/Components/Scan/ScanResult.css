@@ -79,13 +79,21 @@
   color: white;
 }
 
-.toxic-ingredient {
-  color: red;
+.toxic-ingredient
+{
+  color: white;
   font-weight: bold;
-  background-color: #ffe6e6;
+  background-color:rgb(255, 60, 60);
   padding: 2px 4px;
   border-radius: 4px;
 }
+/* .toxic-ingredient, .TOXIC-INGREDIENT {
+  color: white;
+  font-weight: bold;
+  background-color: #ffb5b5;
+  padding: 2px 4px;
+  border-radius: 4px;
+} */
 
 .accordion-toggle {
   background-color: #ffe4e1;
@@ -115,4 +123,16 @@
   color: red;
   margin-bottom: 5px;
   font-size: 1.1rem;
+}
+
+.no-toxins-message {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 4rem;
+}
+
+
+.no-toxins-message img {
+  height: 12rem;
 }

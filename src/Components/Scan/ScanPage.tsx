@@ -19,16 +19,24 @@ const ScanPage = () => {
   const [barcode, setBarcode] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  
+  const [manualBarcode, setManualBarcode] = useState('');
+
+
+  const handleManualSearch = async () => {
+    if (!manualBarcode.trim())
+    {
+      alert("Please enter a barcode");
+      return;
+    }
+    await searchWithBarcode(manualBarcode.trim());
+  }
+
   const handleCustomScanner = (barcode : string) => {
     // alert(barcode);
     handleBarcodeDetected(null, barcode)
   }
 
-  const handleBarcodeDetected = async (err, result) => {
-    if (loading || !result) return; // prevent multiple scans
-  
-    const code = result.text;
+  const searchWithBarcode = async (code : string) => {
     setBarcode(code);
     setLoading(true);
   
@@ -68,12 +76,28 @@ const ScanPage = () => {
         });
       }
   
-    } catch (error) {
-      alert("An error has occurred: " + error.message);
-      console.error("Failed to log scan:", error);
-    } finally {
-      setLoading(false);
+    } 
+    catch (error) {
+      if (axios.isAxiosError(error)) {
+        if (error.response?.status === 404) {
+          navigate('/ItemNotFound');
+        } else {
+          alert("An error has occurred: " + error.message);
+          console.error("Failed to log scan:", error);
+        }
+      } else {
+        alert("An unexpected error occurred.");
+        console.error("Unknown error:", error);
+      }
     }
+  }
+
+  const handleBarcodeDetected = async (err, result) => {
+    if (loading || !result) return; // prevent multiple scans
+    
+    searchWithBarcode(result.text);
+    
+    
   };
   
     
@@ -81,10 +105,20 @@ const ScanPage = () => {
   return (
     <RequireLogin>
       <div className='scan-wrapper'>
-        <div className='page-content'>
+        <div className='scan-page-content'>
           <BarcodeScannerComponent
               onUpdate={handleBarcodeDetected}
             />
+          <div className='manual-scan-wrapper'>
+            {/* "images/my-pet-cat.svg" */}
+            <img className='manual-scan-pets-image' src="images/manual-scan-pets.svg" alt="" />
+            <input type="number" placeholder='Enter barcode' onChange={(e) => setManualBarcode(e.target.value)}/>
+            <button className='scan-search' onClick={handleManualSearch}>
+              <span className="material-symbols-rounded">
+                search
+              </span>
+            </button>
+          </div>
         </div>
         <NavBar
           current="scan"
