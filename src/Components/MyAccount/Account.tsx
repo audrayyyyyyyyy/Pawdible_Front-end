@@ -30,43 +30,28 @@ function Account() {
   };
 
   return (
-    <div className="container">
-      <div className="account-wrapper">
-        <div className="header">
-          <h1 className="my-account">My Account</h1>
+    <div className="account-wrapper">
+      <div className="account-page-content">
+        <div className="account-page-header">
+            My Account
         </div>
-
-        <div className="account-content">
+        <div className="account-page-body">
           <div className="account-avatar"></div>
           <div className="account-name">{username}</div>
 
           <div className="account-choices">
-            {/* <div className="change-avatar">Change Avatar &emsp;&emsp;&emsp;
-                            <span className="arrow"> › </span>
-                        </div>
-                        <div className="change-password">Change Password &emsp;&emsp;&emsp;
-                            <span className="arrow"> › </span>
-                        </div> */}
-            <div
-              className="my-pets space-between"
-              onClick={handleOnMyPets}
-              style={{ cursor: "pointer" }}
-            >
-              My Pets
-              <span className="arrow"> › </span>
+            <div className="acoount-choice-item" onClick={handleOnMyPets} style={{ cursor: "pointer" }}>
+              <p className="account-choice-item-label">My Pets</p>
+              <i className="material-symbols-rounded">chevron_right</i>
             </div>
-            <div
-              className="Logout space-between"
-              onClick={handleLogout}
-              style={{ cursor: "pointer" }}
-            >
-              Logout
-              <span className="arrow"> › </span>
+            <div className="acoount-choice-item" onClick={handleLogout} style={{ cursor: "pointer" }}>
+              <p className="account-choice-item-label">Logout</p>
+              <i className="material-symbols-rounded">chevron_right</i>
             </div>
           </div>
+
         </div>
       </div>
-
       <NavBar
         current="account"
         routes={{
@@ -76,6 +61,55 @@ function Account() {
         }}
       />
     </div>
+
+    // <div className="container">
+    //   <div className="account-wrapper">
+    //     <div className="header">
+    //       <h1 className="my-account">My Account</h1>
+    //     </div>
+
+    //     <div className="account-content">
+    //       <div className="account-avatar">
+            
+    //       </div>
+    //       <div className="account-name">{username}</div>
+
+    //       <div className="account-choices">
+    //         {/* <div className="change-avatar">Change Avatar &emsp;&emsp;&emsp;
+    //                         <span className="arrow"> › </span>
+    //                     </div>
+    //                     <div className="change-password">Change Password &emsp;&emsp;&emsp;
+    //                         <span className="arrow"> › </span>
+    //                     </div> */}
+    //         <div
+    //           className="my-pets space-between"
+    //           onClick={handleOnMyPets}
+    //           style={{ cursor: "pointer" }}
+    //         >
+    //           My Pets
+    //           <span className="arrow"> › </span>
+    //         </div>
+    //         <div
+    //           className="Logout space-between"
+    //           onClick={handleLogout}
+    //           style={{ cursor: "pointer" }}
+    //         >
+    //           Logout
+    //           <span className="arrow"> › </span>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+
+    //   <NavBar
+    //     current="account"
+    //     routes={{
+    //       account: "/account",
+    //       scan: "/scan",
+    //       history: "/history",
+    //     }}
+    //   />
+    // </div>
   );
 }
 

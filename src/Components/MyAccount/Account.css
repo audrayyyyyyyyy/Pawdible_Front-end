@@ -1,7 +1,45 @@
 .account-wrapper {
-  background-color: #FD7F42;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  background: #FD7F42;
+  width: 100dvw;
+  /*background-color: #FD7F42;
   width: 100vw;
-  height: 100dvh;
+  height: 100dvh; */
+}
+
+
+.account-page-header{
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+
+.account-page-body {
+  color: black;
+  background-color: white;
+  flex: 1;
+  border-radius: 2rem 2rem 0rem 0rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  /* gap: 1.25rem; */
+
+  align-items: center;
+}
+
+.account-page-content{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  /* min-height: 100dvh; */
 }
 
 
@@ -26,37 +64,43 @@
 }
 
 .account-avatar {
-  height: 100px;
-  width: 100px;
+  height: 5.5rem;
+  width: 5.5rem;
   background-color: #bbb;
   border-radius: 100%;
-  margin: 20px; /* Vertical spacing */
-  margin-top: 75px;
+  border-width: 2px;
+  border: 2px solid #F67C41;
+  background-image: url("https://picsum.photos/100");
 }
 
 .account-name {
   color: #FCAA48;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 1.25rem;
+  font-weight: 600;
   text-align: center;
-  margin-bottom: 40px;
+  margin-top: 1.5rem;
+  /* margin-bottom: 40px; */
 }
 
 .account-choices {
-  padding: 0 2rem;
+  margin-top: 2.625rem;
+  /* padding: 0 2rem; */
   color: black;
   text-align: left;
   line-height: 3;
   width: 100%;
 }
 
+.acoount-choice-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+
 .space-between {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-
-.arrow{
-  
-
 }

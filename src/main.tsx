@@ -56,14 +56,14 @@ const router = createBrowserRouter([
     path: "/Account",
     element: <Account />,
   },
-  {
-    path: "/ItemFoundSafe",
-    element: <ItemFoundSafe />,
-  },
-  {
-    path: "/ItemFoundUnsafe",
-    element: <ItemFoundUnsafe />,
-  },
+  // {
+  //   path: "/ItemFoundSafe",
+  //   element: <ItemFoundSafe />,
+  // },
+  // {
+  //   path: "/ItemFoundUnsafe",
+  //   element: <ItemFoundUnsafe />,
+  // },
   {
     path: "/ItemNotFound",
     element: <ItemNotFound />,

@@ -20,6 +20,17 @@
   padding: 0;
 }
 
+hr {
+  border-top: 1px solid #F6F6F6;
+}
+
+.page-content{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  /* min-height: 100dvh; */
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -30,12 +41,14 @@ a:hover {
 }
 
 body {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
   display: flex;
-  place-items: center;
+  /* padding-bottom: 60px; */
+  /* place-items: center; */
   /* min-width: 320px; */
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 h1 {
@@ -74,3 +87,11 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+/* 
+.material-symbols-rounded {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+} */

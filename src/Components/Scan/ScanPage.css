@@ -1,0 +1,92 @@
+.scan-wrapper{
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+    background: #FD7F42;
+    width: 100dvw;
+}
+
+.scan-page-content {
+    display: flex;
+    flex-direction: column-reverse;
+    /* display: flex; */
+    /* flex-direction: column; */
+    flex: 1;
+}
+
+.scan-page-content > video {
+    position: fixed;
+    flex: 1;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: calc(100% - 7.5rem);
+    /* z-index: -1; */
+}
+
+.camera-scan-container {
+    width: 100dvw;
+    max-height: 100dvh;
+}
+
+.manual-scan-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100dvw;
+    align-items: center;
+    height: 9.5rem;
+    z-index: 2;
+    background-color: white;
+    padding: 0 2rem;
+    border-radius: 2rem 2rem 0 0;
+}
+
+.manual-scan-wrapper input {
+    background-color: #F2F2F2;
+    border: none;
+    padding: 0.75rem;
+    padding-left: 2rem;
+    border-radius: 2rem 0 0 2rem;
+    flex: 1;
+    align-items: flex-start;
+}
+
+.manual-scan-wrapper input:focus {
+    border-color: #fd7f42;
+    /* border: none; */
+    outline: none;
+}
+
+.manual-scan-wrapper .scan-search {
+    background-color: #FD7F42;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 3rem;
+    position: relative;
+    left: -1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.manual-scan-wrapper input::placeholder {
+    color: #888;               /* Change placeholder text color */
+    /* font-style: italic;        Optional: italicize */
+    font-size: 0.9rem;         /* Optional: resize */
+    opacity: 1;                /* Ensure it's fully visible (some browsers default to lower opacity) */
+}
+
+.manual-scan-pets-image {
+    /* align-self: flex-start; */
+    position: absolute;
+    top: -8rem;
+    height: 12rem;
+    transform: translateX(-50%);
+    left: 50dvw;
+
+    /* position: relative; */
+}
