@@ -1,7 +1,7 @@
 # Pawdible Front-end
 This is the web front-end that is used in the Pawdible project. The Pawdible project is an app that helps pet owners determine if a treat is edible for their pets by simply scanning the barcode of the treat in question
 ## Screenshots
-![Signup Screenshot](Pawdible/signup.png)
+![Signup Screenshot](https://github.com/audrayyyyyyyyy/Pawdible_Front-end/blob/7008d06d0485c419bb53d8fba9e2ba3a641f8efc/demo-screenshots/Login.png)
 
 ## Installation
 ### Prerequisites:
