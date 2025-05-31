@@ -6,7 +6,7 @@ This is the web front-end that is used in the Pawdible project. The Pawdible pro
 ![Scanner](https://github.com/audrayyyyyyyyy/Pawdible_Front-end/blob/19891844301647d6df3ef2b576af0b1bcac0dd8a/demo-screenshots/scanner.png)
 ![Account](https://github.com/audrayyyyyyyyy/Pawdible_Front-end/blob/19891844301647d6df3ef2b576af0b1bcac0dd8a/demo-screenshots/account.png)
 ![MyPets](https://github.com/audrayyyyyyyyy/Pawdible_Front-end/blob/19891844301647d6df3ef2b576af0b1bcac0dd8a/demo-screenshots/my-pets.png)
-![Add New Product](https://github.com/audrayyyyyyyyy/Pawdible_Front-end/blob/19891844301647d6df3ef2b576af0b1bcac0dd8a/demo-screenshots/addnew.pn)
+![Add New Product](https://github.com/audrayyyyyyyyy/Pawdible_Front-end/blob/19891844301647d6df3ef2b576af0b1bcac0dd8a/demo-screenshots/addnew.png)
 ![My History]( https://github.com/audrayyyyyyyyy/Pawdible_Front-end/blob/19891844301647d6df3ef2b576af0b1bcac0dd8a/demo-screenshots/myhistory.png)
 ![Product Not Found](https://github.com/audrayyyyyyyyy/Pawdible_Front-end/blob/19891844301647d6df3ef2b576af0b1bcac0dd8a/demo-screenshots/notFound.png)
 ![Product Safe](https://github.com/audrayyyyyyyyy/Pawdible_Front-end/blob/19891844301647d6df3ef2b576af0b1bcac0dd8a/demo-screenshots/safe.png)
